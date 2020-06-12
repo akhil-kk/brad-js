@@ -28,12 +28,76 @@ The console object provides us with several different methods, like :
 	    console.timeEnd('hello);
 
 
-1. JavaScript variables were declared using the var keyword followed by the name of the variable.
+ Variables
+
+1. JavaScript variables were (ES5) declared using the var keyword followed by the name of the variable.
 	eg: var x;
 	eg: var mark = 50;
 
-2. The variable type Let is similar with var but unlike var it has scope constraints.
+2. The variable type "Let" is similar with var but unlike var it has scope constraints.
 	eg: let name = 'Akhil';	
 
-3. Const is another variable type whose value cannot change throught the script.
+3. "Const" is another variable type whose value cannot change throught the script.
 	eg: const pi = 3.14;
+
+ Data Types
+
+1. Primitive Data Types
+ * Stored directly in the location the variable accesses.
+ * Stored on the stack.
+
+  1.1 String
+    A string in JavaScript must be surrounded by quotes.
+
+    Double quotes: "Hello"
+    Single quotes: 'Hello'
+
+  1.2 Number
+    The number type represents both integer and floating point numbers.
+    
+    let n = 1212;
+    n = 3.14;
+  
+  1.3 Boolean
+ 
+    The boolean type has only two values: true and false.
+    
+    eg: let flag = true;
+        let isPrime = false;
+
+  1.4 Null
+ 
+     It’s a value which represents “nothing”, “empty” or “value unknown”.
+   
+     let mark = null;
+
+  1.5
+
+     The meaning of undefined is “value is not assigned”.
+     If a variable is declared, but not assigned, then its value is undefined:
+
+     eg: let mark;
+         console.log(mark);
+
+
+2. Reference Data Types
+ * Accessed by reference
+ * Objects that are stored on the heap
+ * A pointer to a location in memory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
