@@ -34,14 +34,16 @@ eg: console.time('hello');
  Variables
 
 1. JavaScript variables were (ES5) declared using the var keyword followed by the name of the variable.
+```
 	eg: var x;
 	eg: var mark = 50;
+```
 
 2. The variable type "Let" is similar with var but unlike var it has scope constraints.
-	eg: let name = 'Akhil';	
+`eg: let name = 'Akhil';`	
 
 3. "Const" is another variable type whose value cannot change throught the script.
-	eg: const pi = 3.14;
+`eg: const pi = 3.14;`
 
  Data Types
 
