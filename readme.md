@@ -64,22 +64,19 @@ eg: console.time('hello');
     n = 3.14;
   
   1.3 Boolean
- 
-    The boolean type has only two values: true and false.
+  The boolean type has only two values: true and false.
     
     eg: let flag = true;
         let isPrime = false;
 
   1.4 Null
- 
-     It’s a value which represents “nothing”, “empty” or “value unknown”.
+  It’s a value which represents “nothing”, “empty” or “value unknown”.
    
      let mark = null;
 
-  1.5
-
-     The meaning of undefined is “value is not assigned”.
-     If a variable is declared, but not assigned, then its value is undefined:
+  1.5  Undefined
+  The meaning of undefined is “value is not assigned”.
+  If a variable is declared, but not assigned, then its value is undefined:
 
      eg: let mark;
          console.log(mark);
