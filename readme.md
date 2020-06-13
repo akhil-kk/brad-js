@@ -5,27 +5,30 @@
 The console object provides us with several different methods, like :
 
 1. log() -  used to print the output to the console.
-	eg: console.log('abc');
+	`eg: console.log('abc');`
 
 2. error() - Used to log error message to the console.
-	eg: console.error('This is an error');
+	`eg: console.error('This is an error');`
 
 3. warn() - Used to log warning message to the console.
-	eg: console.warn('This is a warning.'); 
+	`eg: console.warn('This is a warning.');`
 
 4. clear() - Used to clear the console.
-	eg: console.clear(); 
+	`eg: console.clear();`
 
 5. time() and timeEnd() - to know the amount of time spend by a block or a function.
-	eg: console.time('hello');
-	     console.log('hello world');
-	     console.log('hello world');
-	     console.log('hello world');
-	     console.log('hello world');
-	     console.log('hello world');
-	     console.log('hello world');
-	     console.log('hello world');
-	    console.timeEnd('hello);
+
+```
+eg: console.time('hello');
+      console.log('hello world');
+      console.log('hello world');
+      console.log('hello world');
+      console.log('hello world');
+      console.log('hello world');
+      console.log('hello world');
+      console.log('hello world');
+    console.timeEnd('hello);
+  ```
 
 
  Variables
