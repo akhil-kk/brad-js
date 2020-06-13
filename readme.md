@@ -1,4 +1,4 @@
- Javascript Basics
+ ## Javascript Basics
 
  JS Console
 
@@ -84,20 +84,4 @@ The console object provides us with several different methods, like :
  * Accessed by reference
  * Objects that are stored on the heap
  * A pointer to a location in memory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
