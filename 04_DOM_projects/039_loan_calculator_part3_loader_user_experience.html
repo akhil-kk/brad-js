@@ -9,8 +9,12 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-	<title>Hello, world!</title>
+	<title>Loan Calculator</title>
+	<style>
+		#loading, #results {
+			display: none;
+		}
+	</style>
 </head>
 
 <body class="bg-dark">
@@ -40,9 +44,9 @@
 						</div>
 					</form>
 					<!-- loader here -->
-					<!-- <div id="loading">
+					<div id="loading">
 						<img src="img/35.gif" alt="">
-					</div> -->
+					</div>
 					<!-- results -->
 					<div id="results" class="pt-4">
 						<h5>Results</h5>
@@ -85,7 +89,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
-		<script src="037_loan_calculator_part1_build_the_ui.js"></script>
+		<script src="039_loan_calculator_part3_loader_user_experience.js"></script>
 </body>
-
 </html>
