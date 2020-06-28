@@ -14,7 +14,7 @@ const posts = [
 //     setTimeout(function() {
 //         let output = '';
 //         posts.forEach(function(post){
-//             output += `<li>${post.title}</li`
+//             output += `<li>${post.title}</li>`
 //         });
 //         document.body.innerHTML = output;
 //     }, 1000);
@@ -36,10 +36,10 @@ function getPosts() {
     setTimeout(function() {
         let output = '';
         posts.forEach(function(post){
-            output += `<li>${post.title}</li`
-        });
+            output += `<li>${post.title}</li>`
+        }); 
         document.body.innerHTML = output;
     }, 1000);
 }
 
-createPost({title: 'Post three', body: 'This is post three'});
+createPost({title: 'Post three', body: 'This is post three'}, getPosts);
