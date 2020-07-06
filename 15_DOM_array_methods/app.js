@@ -27,8 +27,15 @@ async function getRandomUser() {
     addData(newUser)
 }
 
-//Add new obj to data arr
+//Doubles everyones Money
+function doubleMoney() {
+    data = data.map(user => {
+        return {...user, money: user.money * 2};
+    });
+    updateDOM();
+}
 
+//Add new obj to data arr
 function addData(obj) {
     data.push(obj);
 
@@ -49,11 +56,10 @@ function updateDOM (providedData = data){
 }
 
 //format number as money
-
 function formatMoney(number) {
     return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
 // event listeners
-
 addUserBtn.addEventListener('click', getRandomUser);
+doubleBtn.addEventListener('click', doubleMoney);
