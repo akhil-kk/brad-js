@@ -147,3 +147,11 @@ input[type='text'], input[type='number'] {
 form input {
     margin: 10px 0;
 }
+
+#warning {
+    padding: 5px 0px;
+    background-color: #c0392b;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
