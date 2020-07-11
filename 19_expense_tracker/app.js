@@ -52,6 +52,8 @@ function addTransaction(e) {
         updateBalance(amount);
         updateIncome(amount);
         storeEntryInLocalStorage(text, amount); // store entries in local storage
+    } else if (amount === 0) {
+        displayWarning();
     } else {
         let elemLi = createElements(text, amount);
         elemLi.className += 'minus';
@@ -132,7 +134,7 @@ function dltEntryfromLocalStorage(txt) {
     } else {
         entries = JSON.parse(localStorage.getItem('entries'));
     }
-    entries.forEach(function (entry, index) {
+    entries.forEach(function(entry, index) {
         if (entry.inputTxt === txt) {
             entries.splice(index, 1);
         }
