@@ -33,7 +33,7 @@ tasks.addEventListener('click', (e) => {
 //DOM load event
 document.addEventListener('DOMContentLoaded', getEntries);
 
-// get entries form local storage
+// get entries fromm local storage
 function getEntries() {
     let entries;
     if (localStorage.getItem('entries') === null) {
@@ -64,8 +64,7 @@ function addExpense(e) {
     const text = inputText.value;
     const amount = +inputAmount.value;
     if (text === '' || amount === '') {
-        warning.style.display = 'block';
-        setTimeout(clearWarning, 3000);
+        displaywarning();
     } else if (amount > 0) {
         let elemLi = createElements(text, amount);
         elemLi.className += 'plus';
@@ -79,10 +78,18 @@ function addExpense(e) {
         updateExpense(amount);
         storeEntryInLocalStorage(text, amount); // store entries in local storage
     }
-    function clearWarning() {
-        warning.style.display = 'none';
-    }
     clearInputFields();
+}
+
+// display warning
+function displaywarning() {
+    warning.style.display = 'block';
+    setTimeout(clearWarning, 3000);
+}
+
+// clear warning
+function clearWarning() {
+    warning.style.display = 'none';
 }
 
 // create elements
