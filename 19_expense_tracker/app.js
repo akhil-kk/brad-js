@@ -1,7 +1,6 @@
 const inputText = document.getElementById('text');
 const inputAmount = document.getElementById('amount');
 const submit = document.querySelector('.btn');
-const expenseHistory = document.querySelector('.list');
 const balance = document.getElementById('balance');
 const income = document.getElementById('money-plus');
 const expense = document.getElementById('money-minus');
@@ -94,23 +93,10 @@ function clearWarning() {
 
 // create elements
 function createElements(text, amount) {
-    const transaction = document.createElement('li');
-    const transactionAmt = document.createElement('span');
-    const closeBtn = document.createElement('button');
-    closeBtn.className += 'delete-btn';
-
-    const textNodeLi = document.createTextNode(`${text}`);
-    const textNodeSpan = document.createTextNode(`$${Math.abs(amount)}`);
-    const textNodeBtn = document.createTextNode('x');
-
-    transaction.appendChild(textNodeLi);
-    transactionAmt.appendChild(textNodeSpan);
-    closeBtn.appendChild(textNodeBtn);
-
-    transaction.appendChild(transactionAmt);
-    transaction.appendChild(closeBtn);
-    expenseHistory.appendChild(transaction);
-    return  transaction;
+    let history = document.createElement('li');
+    history.innerHTML = `${text}<span>$${Math.abs(amount)}</span><button class="delete-btn">x</button>`
+    tasks.appendChild(history);
+    return history;
 }
 
 // update balance
@@ -164,11 +150,3 @@ function dltEntryfromLocalStorage(txt) {
     });
     localStorage.setItem('entries', JSON.stringify(entries));
 }
-
-
-
-
-
-
-
-
