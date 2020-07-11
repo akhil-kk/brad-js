@@ -11,28 +11,10 @@ let currentBalance = 0;
 let currentExpense = 0;
 let currentIncome = 0;
 
-//Delete already added entries
-tasks.addEventListener('click', (e) => {
-    if (e.target.classList.contains('delete-btn')) {
-        let txt = e.target.parentElement.firstChild.textContent;
-        let deduct = e.target.parentElement.children[0].textContent;
-        deduct = deduct.substring(1);
-        if (e.target.parentElement.className === 'plus') {
-            updateYourBalance(parseFloat(-deduct));
-            updateIncome(parseFloat(-deduct));
-        } else {
-            updateYourBalance(parseFloat(deduct));
-            updateExpense(parseFloat(deduct));
-        }
-        e.target.parentElement.remove();
-        dltEntryfromLocalStorage(txt); //remove from local storage
-    }
-});
-
-//DOM load event
+// DOM load event
 document.addEventListener('DOMContentLoaded', getEntries);
 
-// get entries fromm local storage
+// Get entries from local storage on page load
 function getEntries() {
     let entries;
     if (localStorage.getItem('entries') === null) {
@@ -44,54 +26,43 @@ function getEntries() {
         if (entry.InputAmnt > 0) {
             let repopulate = createElements(entry.inputTxt, entry.InputAmnt);
             repopulate.className += 'plus';
-            updateYourBalance(entry.InputAmnt);
+            updateBalance(entry.InputAmnt);
             updateIncome(entry.InputAmnt);
         } else {
             let repopulate = createElements(entry.inputTxt, entry.InputAmnt);
             repopulate.className += 'minus';
-            updateYourBalance(entry.InputAmnt);
+            updateBalance(entry.InputAmnt);
             updateExpense(entry.InputAmnt);
         }
     });
 }
 
-// event listener
-submit.addEventListener('click', addExpense);
+// Event listener for add transaction
+submit.addEventListener('click', addTransaction);
 
-function addExpense(e) {
+function addTransaction(e) {
     e.preventDefault();
     const text = inputText.value;
     const amount = +inputAmount.value;
     if (text === '' || amount === '') {
-        displaywarning();
+        displayWarning();
     } else if (amount > 0) {
         let elemLi = createElements(text, amount);
         elemLi.className += 'plus';
-        updateYourBalance(amount);
+        updateBalance(amount);
         updateIncome(amount);
         storeEntryInLocalStorage(text, amount); // store entries in local storage
     } else {
         let elemLi = createElements(text, amount);
         elemLi.className += 'minus';
-        updateYourBalance(amount);
+        updateBalance(amount);
         updateExpense(amount);
         storeEntryInLocalStorage(text, amount); // store entries in local storage
     }
     clearInputFields();
 }
 
-// display warning
-function displaywarning() {
-    warning.style.display = 'block';
-    setTimeout(clearWarning, 3000);
-}
-
-// clear warning
-function clearWarning() {
-    warning.style.display = 'none';
-}
-
-// create elements
+// Create expense history
 function createElements(text, amount) {
     let history = document.createElement('li');
     history.innerHTML = `${text}<span>$${Math.abs(amount)}</span><button class="delete-btn">x</button>`
@@ -99,31 +70,31 @@ function createElements(text, amount) {
     return history;
 }
 
-// update balance
-function updateYourBalance(amount) {
+// Update the balance for each transaction
+function updateBalance(amount) {
     currentBalance = currentBalance + amount;
     balance.innerHTML = `$ ${currentBalance}`;
 }
 
-// update the income for positive transaction
+// Update the income for positive transaction
 function updateIncome(amount) {
     currentIncome = currentIncome + amount;
     income.innerHTML = `+$ ${currentIncome}`;
 }
 
-// update the expense for negative transaction
+// Update the expense for negative transaction
 function updateExpense(amount) {
     currentExpense = currentExpense - amount;
     expense.innerHTML = `-$ ${currentExpense}`;
 }
 
-// clear input fields
+// Clear input fields
 function clearInputFields() {
     inputAmount.value = '';
     inputText.value = '';
 }
 
-// function to store into local storage
+// Function to store entires into local storage
 function storeEntryInLocalStorage(text, amount) {
     let entries;
     if (localStorage.getItem('entries') === null) {
@@ -135,7 +106,25 @@ function storeEntryInLocalStorage(text, amount) {
     localStorage.setItem('entries', JSON.stringify(entries));
 }
 
-// delete from local storage
+// Delete already added entries from UI
+tasks.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete-btn')) {
+        let txt = e.target.parentElement.firstChild.textContent;
+        let deduct = e.target.parentElement.children[0].textContent;
+        deduct = deduct.substring(1);
+        if (e.target.parentElement.className === 'plus') {
+            updateBalance(parseFloat(-deduct));
+            updateIncome(parseFloat(-deduct));
+        } else {
+            updateBalance(parseFloat(deduct));
+            updateExpense(parseFloat(deduct));
+        }
+        e.target.parentElement.remove();
+        dltEntryfromLocalStorage(txt); //remove from local storage
+    }
+});
+
+// Delete from local storage
 function dltEntryfromLocalStorage(txt) {
     let entries;
     if (localStorage.getItem('entries') === null) {
@@ -149,4 +138,15 @@ function dltEntryfromLocalStorage(txt) {
         }
     });
     localStorage.setItem('entries', JSON.stringify(entries));
+}
+
+// Display warning message
+function displayWarning() {
+    warning.style.display = 'block';
+    setTimeout(clearWarning, 3000);
+}
+
+// Clear warning message
+function clearWarning() {
+    warning.style.display = 'none';
 }
