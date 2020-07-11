@@ -1,22 +1,21 @@
-
 const inputText = document.getElementById('text');
 const inputAmount = document.getElementById('amount');
 const submit = document.querySelector('.btn');
 const expenseHistory = document.querySelector('.list');
 const balance = document.getElementById('balance');
-let initialBalance = parseFloat(balance.textContent);
 const income = document.getElementById('money-plus');
-let initialIncome = parseFloat(income.textContent);
 const expense = document.getElementById('money-minus');
-let initialExpense = parseFloat(expense.textContent);
 const tasks = document.getElementById('list');
 const warning = document.getElementById('warning');
+
+let currentBalance = 0;
+let currentExpense = 0;
+let currentIncome = 0;
 
 //Delete already added entries
 tasks.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete-btn')) {
         let txt = e.target.parentElement.firstChild.textContent;
-        console.log(txt);
         let deduct = e.target.parentElement.children[0].textContent;
         deduct = deduct.substring(1);
         if (e.target.parentElement.className === 'plus') {
@@ -27,8 +26,7 @@ tasks.addEventListener('click', (e) => {
             updateExpense(parseFloat(deduct));
         }
         e.target.parentElement.remove();
-        //remove from local storage
-        dltEntryfromLocalStorage(txt);
+        dltEntryfromLocalStorage(txt); //remove from local storage
     }
 });
 
@@ -43,46 +41,15 @@ function getEntries() {
     } else {
         entries = JSON.parse(localStorage.getItem('entries'));
     }
-
     entries.forEach(function (entry) {
         if (entry.InputAmnt > 0) {
-            const transaction = document.createElement('li');
-            transaction.className += 'plus';
-            const transactionAmt = document.createElement('span');
-            const closeBtn = document.createElement('button');
-            closeBtn.className += 'delete-btn';
-
-            const textNodeLi = document.createTextNode(`${entry.inputTxt}`);
-            const textNodeSpan = document.createTextNode(`$${Math.abs(entry.InputAmnt)}`);
-            const textNodeBtn = document.createTextNode('x');
-
-            transaction.appendChild(textNodeLi);
-            transactionAmt.appendChild(textNodeSpan);
-            closeBtn.appendChild(textNodeBtn);
-
-            transaction.appendChild(transactionAmt);
-            transaction.appendChild(closeBtn);
-            expenseHistory.appendChild(transaction);
+            let repopulate = createElements(entry.inputTxt, entry.InputAmnt);
+            repopulate.className += 'plus';
             updateYourBalance(entry.InputAmnt);
             updateIncome(entry.InputAmnt);
         } else {
-            const transaction = document.createElement('li');
-            transaction.className += 'minus';
-            const transactionAmt = document.createElement('span');
-            const closeBtn = document.createElement('button');
-            closeBtn.className += 'delete-btn';
-
-            const textNodeLi = document.createTextNode(`${entry.inputTxt}`);
-            const textNodeSpan = document.createTextNode(`$ ${Math.abs(entry.InputAmnt)}`);
-            const textNodeBtn = document.createTextNode('x');
-
-            transaction.appendChild(textNodeLi);
-            transactionAmt.appendChild(textNodeSpan);
-            closeBtn.appendChild(textNodeBtn);
-
-            transaction.appendChild(transactionAmt);
-            transaction.appendChild(closeBtn);
-            expenseHistory.appendChild(transaction);
+            let repopulate = createElements(entry.inputTxt, entry.InputAmnt);
+            repopulate.className += 'minus';
             updateYourBalance(entry.InputAmnt);
             updateExpense(entry.InputAmnt);
         }
@@ -100,81 +67,61 @@ function addExpense(e) {
         warning.style.display = 'block';
         setTimeout(clearWarning, 3000);
     } else if (amount > 0) {
-        const transaction = document.createElement('li');
-        transaction.className += 'plus';
-        const transactionAmt = document.createElement('span');
-        const closeBtn = document.createElement('button');
-        closeBtn.className += 'delete-btn';
-
-        const textNodeLi = document.createTextNode(`${text}`);
-        const textNodeSpan = document.createTextNode(`$${Math.abs(amount)}`);
-        const textNodeBtn = document.createTextNode('x');
-
-        transaction.appendChild(textNodeLi);
-        transactionAmt.appendChild(textNodeSpan);
-        closeBtn.appendChild(textNodeBtn);
-
-        transaction.appendChild(transactionAmt);
-        transaction.appendChild(closeBtn);
-        expenseHistory.appendChild(transaction);
+        let elemLi = createElements(text, amount);
+        elemLi.className += 'plus';
         updateYourBalance(amount);
         updateIncome(amount);
-        clearInputFields();
-
-        // store entries in local storage
-        storeEntryInLocalStorage(text, amount);
-
+        storeEntryInLocalStorage(text, amount); // store entries in local storage
     } else {
-        const transaction = document.createElement('li');
-        transaction.className += 'minus';
-        const transactionAmt = document.createElement('span');
-        const closeBtn = document.createElement('button');
-        closeBtn.className += 'delete-btn';
-
-        const textNodeLi = document.createTextNode(`${text}`);
-        const textNodeSpan = document.createTextNode(`$ ${Math.abs(amount)}`);
-        const textNodeBtn = document.createTextNode('x');
-
-        transaction.appendChild(textNodeLi);
-        transactionAmt.appendChild(textNodeSpan);
-        closeBtn.appendChild(textNodeBtn);
-
-        transaction.appendChild(transactionAmt);
-        transaction.appendChild(closeBtn);
-        expenseHistory.appendChild(transaction);
+        let elemLi = createElements(text, amount);
+        elemLi.className += 'minus';
         updateYourBalance(amount);
         updateExpense(amount);
-        clearInputFields();
-        storeEntryInLocalStorage(text, amount);
+        storeEntryInLocalStorage(text, amount); // store entries in local storage
     }
-
     function clearWarning() {
         warning.style.display = 'none';
     }
+    clearInputFields();
+}
+
+// create elements
+function createElements(text, amount) {
+    const transaction = document.createElement('li');
+    const transactionAmt = document.createElement('span');
+    const closeBtn = document.createElement('button');
+    closeBtn.className += 'delete-btn';
+
+    const textNodeLi = document.createTextNode(`${text}`);
+    const textNodeSpan = document.createTextNode(`$${Math.abs(amount)}`);
+    const textNodeBtn = document.createTextNode('x');
+
+    transaction.appendChild(textNodeLi);
+    transactionAmt.appendChild(textNodeSpan);
+    closeBtn.appendChild(textNodeBtn);
+
+    transaction.appendChild(transactionAmt);
+    transaction.appendChild(closeBtn);
+    expenseHistory.appendChild(transaction);
+    return  transaction;
 }
 
 // update balance
 function updateYourBalance(amount) {
-    let liveBalance = initialBalance;
-    liveBalance = liveBalance + amount;
-    balance.innerHTML = `$ ${liveBalance}`;
-    initialBalance = liveBalance;
+    currentBalance = currentBalance + amount;
+    balance.innerHTML = `$ ${currentBalance}`;
 }
 
 // update the income for positive transaction
 function updateIncome(amount) {
-    let liveIncome = initialIncome;
-    liveIncome = liveIncome + amount;
-    income.innerHTML = `+$ ${liveIncome}`;
-    initialIncome = liveIncome;
+    currentIncome = currentIncome + amount;
+    income.innerHTML = `+$ ${currentIncome}`;
 }
 
 // update the expense for negative transaction
 function updateExpense(amount) {
-    let liveExpense = initialExpense;
-    liveExpense = liveExpense - amount;
-    expense.innerHTML = `-$ ${liveExpense}`;
-    initialExpense = liveExpense;
+    currentExpense = currentExpense - amount;
+    expense.innerHTML = `-$ ${currentExpense}`;
 }
 
 // clear input fields
@@ -191,7 +138,6 @@ function storeEntryInLocalStorage(text, amount) {
     } else {
         entries = JSON.parse(localStorage.getItem('entries'));
     }
-
     entries.push({ inputTxt: text, InputAmnt: amount });
     localStorage.setItem('entries', JSON.stringify(entries));
 }
@@ -204,7 +150,6 @@ function dltEntryfromLocalStorage(txt) {
     } else {
         entries = JSON.parse(localStorage.getItem('entries'));
     }
-
     entries.forEach(function (entry, index) {
         if (entry.inputTxt === txt) {
             entries.splice(index, 1);
