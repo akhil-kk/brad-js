@@ -77,6 +77,7 @@ function clearCol(key) {
 
 function keyPressHandler() {
     let display = document.getElementById('textarea');
+    let cursor = display.focus();
     if (currentCol.classList.contains('character')) {
         display.value += currentCol.textContent;
     } else if (currentCol.classList.contains('space')) {
@@ -97,6 +98,7 @@ function keyPressHandler() {
         clearInterval(colIterator);
         navigateRow();
     } else if (currentCol.classList.contains('case')) {
+        currentCol.classList.remove('capslock');
         let caseCheck = document.getElementById('a2').firstChild.textContent;
         let caseValue = caseCheck.charCodeAt();
         if (caseValue <= 90) {
@@ -105,11 +107,12 @@ function keyPressHandler() {
                     singleKey = document.getElementById(rows[i]).children[j];
                     if (singleKey.classList.contains('character')) {
                         let lowerCasekeyText = singleKey.textContent.toLowerCase();
-                        singleKey.textContent = lowerCasekeyText;
+                        singleKey.textContent = lowerCasekeyText; 
                     }
                 }
             }
         } else {
+            currentCol.classList.add('capslock');
             for (let i = 0; i < 4; i++) {
                 for (j = 1; j < 8; j++) {
                     singleKey = document.getElementById(rows[i]).children[j];
