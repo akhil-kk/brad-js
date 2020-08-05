@@ -32,9 +32,9 @@
     <meta charset="utf-8">
     <script>
         function addSongs() {
-            var song1 = document.getElementById("song1");
-            var song2 = document.getElementById("song2");
-            var song3 = document.getElementById("song3");
+            let song1 = document.getElementById("song1");
+            let song2 = document.getElementById("song2");
+            let song3 = document.getElementById("song3");
             song1.innerHTML = "Blue Suede Strings, by Elvis Pagely";
             song2.innerHTML = "Great Objects on Fire, by Jerry JSON Lewis";
             song3.innerHTML = "I Code the Line, by Johnny JavaScript";
@@ -50,6 +50,37 @@
         <li id="song2"></li>
         <li id="song3"></li>
     </ul>
+</body>
+
+</html>
+
+<script>
+    function init() {
+        let planet = document.getElementById("greenplanet");
+        planet.innerHTML = "Red Alert: hit by phaser fire!";
+    }
+    window.onload = init;
+</script>
+
+//
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Movies</title>
+</head>
+
+<body>
+    <h1>Movie Showtimes</h1>
+    <h2 id="movie1">Plan 9 from Outer Space</h2>
+    <p>Playing at 3:00pm, 7:00pm.
+        <span>
+            Special showing tonight at <em>midnight</em>!
+        </span>
+    </p>
+    <h2 id="movie2">Forbidden Planet</h2>
+    <p>Playing at 5:00pm, 9:00pm.</p>
 </body>
 
 </html>
