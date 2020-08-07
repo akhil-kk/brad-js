@@ -131,3 +131,87 @@ if (99 == "99") {
 } else {
     console.log("No way a number equals a string");
 }
+
+// 
+let text = "YOU SHOULD NEVER SHOUT WHEN TYPING";
+let presentableText = text.toLowerCase();
+if (presentableText.length > 0) {
+    alert(presentableText);
+}
+
+let emot = "XOxxOO";
+let hugs = 0;
+let kisses = 0;
+emot = emot.trim();
+emot = emot.toUpperCase();
+
+for (let i = 0; i < emot.length; i++) {
+    if (emot.charAt(i) === "X") {
+        hugs++;
+    } else if (emot.charAt(i) == "O") {
+        kisses++;
+    }
+}
+
+// equality test
+
+if ("0" == false) {
+    console.log('hi');
+}
+
+if ("42" == 42) {
+    console.log('hi');
+}
+
+if (null == undefined) {
+    console.log('hi');
+}
+
+if (99 == 'vanila') {
+    console.log('hi');
+}
+
+if ("true" == true) {
+    console.log('hi');
+}
+
+let order = 1 + 2 + " pizzas";
+console.log(order);
+
+let text = "YOU SHOULD NEVER SHOUT WHEN TYPING";
+let presentableText = text.toLowerCase();
+if (presentableText.length > 0) {
+    console.log(presentableText);
+}
+
+let name = "Jenny";
+let phone = "867-5309";
+let fact = "This is a prime number";
+let songName = phone + "/" + name;
+let index = phone.indexOf("-");
+if (fact.substring(10, 15) === "prime") {
+    alert(fact);
+}
+
+let arr = [];
+
+if (arr) {
+    console.log('true');
+}
+
+// string methods
+let input = "jenny@wickedlysmart.com";
+for (let i = 0; i < input.length; i++) {
+    if (input.charAt(i) === "@") {
+        console.log("There's an @ sign at index " + i);
+    }
+}
+
+let phrase = "the cat in the hat";
+let index = phrase.indexOf("cat");
+console.log("there's a cat sitting at index " + index);
+
+// substring
+let data = "name|phone|address";
+let val = data.substring(5, 10);   // gets string from 5 to 10 (not including 10)
+console.log("Substring is " + val);
