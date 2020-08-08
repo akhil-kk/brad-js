@@ -215,3 +215,63 @@ console.log("there's a cat sitting at index " + index);
 let data = "name|phone|address";
 let val = data.substring(5, 10);   // gets string from 5 to 10 (not including 10)
 console.log("Substring is " + val);
+
+val = data.substring(5);
+console.log("Substring is now " + val);
+
+//split
+
+let data = "name|phone|address";
+let vals = data.split("|");
+console.log("Split array is ", vals);
+
+// undefined and null
+
+let arr = [];
+let y = '';
+
+console.log(typeof undefined);
+console.log(typeof null);
+if (arr) {
+    console.log('true');
+}
+
+//validate phn number
+function validate(phoneNumber) {
+    if (phoneNumber.length !== 8) {
+        return false;
+    }
+    let first = phoneNumber.substring(0, 3);
+    let second = phoneNumber.substring(4);
+    if (phoneNumber.charAt(3) !== "-" || isNaN(first) || isNaN(second)) {
+        return false;
+    }
+    return true;
+}
+
+function validate(phoneNumber) {
+    if (phoneNumber.length > 8 ||
+    phoneNumber.length < 7) {
+    return false;
+    }
+    var first = phoneNumber.substring(0,3);
+    var second = phoneNumber.substring(phoneNumber.length - 4);
+    if (isNaN(first) || isNaN(second)) {
+    return false;
+    }
+    if (phoneNumber.length === 8) {
+    return (phoneNumber.charAt(3) === "-");
+    }
+    return
+}
+
+// instance of
+
+function Duck(sound) {
+    this.sound = sound;
+    this.quack = function () { console.log(this.sound); }
+}
+let toy = new Duck("quack quack");
+toy.quack();
+console.log(typeof toy);
+console.log(toy instanceof Duck);
