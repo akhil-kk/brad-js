@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Yelp</title>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <nav class="main-nav">
+                <ul class="main-nav-ul1">
+                    <li><a href="">Write a Review</a></li>
+                    <li><a href="">Events</a></li>
+                    <li><a href="">Talk</a></li>
+                </ul>
+                <ul class="main-nav-ul2">
+                    <li><a href="">Login</a></li>
+                    <li>
+                        <input type="submit" id="signup" value="Sign Up">
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-container2">
+                <a href=""><img src="img/yelpwebmiddle.PNG" alt=""></a>
+                <div class="search-container">
+                    <span>Find</span>
+                    <input type="search" class="search-items" id="item" placeholder="accountants, delivery, takeout..">
+                    <span>Near</span>
+                    <input type="search" id="location" class="search-location"
+                        placeholder="address, neighbourhood,city, state or zip ">
+                    <a class="search-block" href=""><i class="large material-icons">search</i></a>
+                </div>
+            </div>
+
+            <div class="services-container">
+                <div class="services feature1">
+                    <a href=""><img src="img/calculator.PNG" alt=""></a>
+                    <a href="">Accountants</a>
+                </div>
+                <div class="services feature2">
+                    <a href=""><img src="img/restaurent.PNG" alt=""></a>
+                    <a href="">Restaurents</a>
+                </div>
+                <div class="services feature3">
+                    <a href=""><img src="img/home.PNG" alt=""></a>
+                    <a href="">Home Services</a>
+                </div>
+                <div class="services feature4">
+                    <a href=""><img src="img/bike.PNG" alt=""></a>
+                    <a href="">Delivery</a>
+                </div>
+            </div>
+
+            <div class="message-wrapper">
+                <div class="message">
+                    <p><strong>Yelp is committed to supporting the Black community</strong></p> <br>
+                    <p>As part of our ongoing efforts, the Yelp Foundation is donating $500,000
+                        to the Equal Justice Initiative and the NAACP Legal Defense Fund.
+                        We are also developing tools in support of Black-owned businesses.</p><br>
+                    <a href="">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="best-business-section">
+            <div class="best-business-section-wrapper">
+                <h3>Find the Best Businesses in Town</h3>
+                <div class="find-business-wrapper">
+                    <div class="business cont1">
+                        <a href=""><img src="img/gyms.PNG" alt=""></a>
+                        <a class="find-business-text" href="">Gym</a>
+                    </div>
+                    <div class="business cont2">
+                        <a href=""><img src="img/hotels.PNG" alt=""></a>
+                        <a class="find-business-text" href="">Hotels</a>
+                    </div>
+                    <div class="business cont3">
+                        <a href=""><img src="img/drycleaning.PNG" alt=""></a>
+                        <a class="find-business-text" href="">Dry Cleaning</a>
+                    </div>
+                    <div class="business cont4">
+                        <a href=""><img src="img/dentist.PNG" alt=""></a>
+                        <a class="find-business-text" href="">Dentist</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="san-francisco">
+            <h3>Yelp San Francisco</h3>
+            <nav class="san-francisco-nav">
+                <ul>
+                    <li><a href="">New York</a></li>
+                    <li><a href="">San Jose</a></li>
+                    <li><a href="">Los Angeles</a></li>
+                    <li><a href="">Chicago</a></li>
+                    <li><a href="">Palo Alto</a></li>
+                    <li><a href="">Oakland</a></li>
+                    <li>
+                        <div class="search-cities">
+                            <a href=""><i class="large material-icons">search</i></a>
+                            <a href="">More Cities</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="line">
+                    <hr>
+                </div>
+            </nav>
+        </section>
+
+        <section class="hot-business">
+            <h4>Hot & New Businesses</h4>
+            <div class="new-business-wrapper">
+                <div class="new-business type1" id="img1">
+                    <img id="new-business-image1" onclick="imageShuffle('img1')" src="img/zattar.jpg" alt="" height="180">
+                    <div class="business-description">
+                        <h4>Le Moon Thai Eatery</h4>
+                        <div class="starReview">
+                            <div class="reviewbox" id="reviewBox1">
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                            </div>
+                        </div>
+                        <p>Thai</p>
+                        <p>Marina/Cow Hollow</p>
+                        <i class="fa fa-fire"></i>
+                    </div>
+                </div>
+                <div class="new-business type2" id="img2">
+                    <img id="new-business-image2" onclick="imageShuffle('img2')" src="img/gotharvest.jpg" alt="" height="180">
+                    <div class="business-description">
+                        <h4>1011 Sip Tea</h4>
+                        <div class="starReview">
+                            <div class="reviewbox" id="reviewBox2">
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                            </div>
+                        </div>
+                        <p>Bubble Tea, Coffee & Tea</p>
+                        <p>Outer Sunset</p>
+                        <i class="fa fa-fire"></i>
+                    </div>
+                </div>
+                <div class="new-business type3" id="img3">
+                    <img id="new-business-image3" onclick="imageShuffle('img3')" src="img/ziptea.jpg" alt="" height="180">
+                    <div class="business-description">
+                        <h4>Hetchy's Hots</h4>
+                        <div class="starReview">
+                            <div class="reviewbox" id="reviewBox3">
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                                <span class="fa fa-star unchecked"></span>
+                            </div>
+                        </div>
+                        <p>CSA</p>
+                        <p>Bayview-Hunters Point</p>
+                        <i class="fa fa-fire"></i>
+                    </div>
+                </div>
+            </div>
+            <a class="see-more" href="">See more hot and new businesses</a>
+        </section>
+
+        <section class="local-yelp">
+            <div class="cofee-cup-box">
+                <h4 class="local-sub-heading">The Local Yelp</h4>
+                <div class="coffee-cup">
+                    <a href=""><img src="img/coffee.jpg" alt="" height="200"></a>
+                    <div class="coffee-cup-description">
+                        <h4 class="event-description-heading">Coffee? Coffee ☕</h4>
+                        <p>Has the concept and measurement of a day, time, months lost meaning? Yeah, us too. Time to
+                            order a coffee. Here’s a Collection of great local coffee shops open and ready to connect
+                            you with your caffeine.</p>
+                        <span class="note">The Local Yelp</span>
+                    </div>
+                </div>
+                <a class="remarks-local" href="">See More</a>
+            </div>
+            <div class="yelp-event-box">
+                <h4 class="local-sub-heading help">Official Yelp Event</h4>
+                <div class="yelp-event">
+                    <a href=""><img src="img/virtualimage.jpg" alt="" height="200"></a>
+                    <div class="yelp-event-description">
+                        <h4 class="event-description-heading">Virtual Yelp Event: HIIT Happens...</h4>
+                        <p>If all this Sheltering-in-Place has added some unwanted pounds, then you'll want to join
+                            Leonie LaPoint.
+                        </p>
+                        <span class="note">Sat, Jun 27, 10:00 am - 10:30 am</span>
+                    </div>
+                </div>
+                <a class="remarks-local" href="">See all events</a>
+            </div>
+        </section>
+
+        <section class="review-wrapper">
+            <div class="review-of-day">
+                <h4 class="block-heading">Review of the Day</h4>
+                <div class="review-content">
+                    <div class="review-ratings">
+                        <a href=""><img class="profile-img" src="img/natureimage.jpg" alt="" width="60" height="60"></a>
+                        <div class="reviewer-ratings">
+                            <a class="reviewer-name" href="">Elaine Y</a>
+                            <nav class="review-navigation">
+                                <ul>
+                                    <li>
+                                        <div class="review-icons">
+                                            <a href=""><img src="img/friends-icon.PNG" alt=""></a>
+                                            <a href="">813</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="review-icons">
+                                            <a href=""><span class="fa fa-star rate"></span></a>
+                                            <a href="">1094</a>
+                                        </div>
+                                    </li>
+                                    <li><a class="elite" href="">Elite '20</a></li>
+                                </ul>
+                            </nav>
+                            <p class="seafood">Wrote a review for <a class="seafood-market" href="">2227 Irving Seafood
+                                    Market</a></p>
+                        </div>
+                    </div>
+                    <div class="review-banner">
+                        <p>Review of the Day</p>
+                        <img class="review-banner-img" src="img/banner.png" alt="">
+                    </div>
+                    <div class="food-description">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        <span class="review-date">5/3/2020</span>
+                        <p>This is one of our favorite stops along Irving to pick up our meats for the week. They have a
+                            very good variety of choices and you can also always ask if they might have some less
+                            popular pieces that aren't displayed (like pork cheeks, beef tendons, etc). I also like that
+                            you can request them to cut pieces however you need it prepped which makes life a lot easier
+                            when you are prepping at home. By far, one of our favo... Continue reading</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="recent-collection-box">
+                <h4 class="block-heading">Recent Collection</h4>
+                <div class="recent-collections">
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>

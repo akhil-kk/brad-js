@@ -1,0 +1,22 @@
+[   
+    {
+        "id": "reviewBox1",
+        "rating": 1.5,
+        "review": 250,
+        "opened": "10 days"
+    },
+
+    {
+        "id": "reviewBox2",
+        "rating": 4,
+        "review": 10,
+        "opened": "5 week"
+    },
+
+    {
+        "id": "reviewBox3",
+        "rating": 2.5,
+        "review": 225,
+        "opened": "A few days"
+    }
+]
