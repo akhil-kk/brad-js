@@ -180,8 +180,3 @@ function init() {
 	guessInput.onkeypress = handleKeyPress;
 	model.generateShipLocations();
 }
-
-
-
-
-
