@@ -43,7 +43,6 @@ kk.bark();
 console.log(Arjun);
 
 //constructor excercise
-
 function Coffee(roast, ounces) {
     this.roast = roast;
     this.ounces = ounces;
@@ -83,5 +82,33 @@ let newCar = {
     cc: 1600,
     mode: 'park',
 }
+
 let car1 = new Car(newCar);
 console.log(car1);
+
+if (car1 instanceof Car) {
+    console.log('yes its a car');
+}
+
+//date constructor
+
+let now = new Date();
+console.log(String(now));
+console.log(now.getFullYear());
+console.log(now.getDay()); // returns day of the week like 1 for monday.
+
+// arrays using constructors
+let arr = new Array;
+console.log(arr);
+
+let items = new Array("a", "b", "c");
+let items = ["a", "b", "c"]; // shorthand
+
+// create array of specific size
+let n = getNumberOfWidgetsFromDatabase();
+let widgets = new Array(n);
+for (let i = 0; i < n; i++) {
+    widgets[i] = getDatabaseRecord(i);
+}
+
+
