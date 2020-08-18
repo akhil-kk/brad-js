@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event handlers</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+        img { margin: 20px;}
+    </style>
+</head>
+
+<body>
+    <p>This is a test for event handlers</p>
+    <img id="zero" src="img/zeroblur.jpg">
+    <img id="one" src="img/oneblur.jpg">
+    <img id="two" src="img/twoblur.jpg">
+    <img id="three" src="img/threeblur.jpg">
+    <img id="four" src="img/fourblur.jpg">
+    <img id="five" src="img/fiveblur.jpg">
+    <script src="script.js"></script>
+</body>
+
+</html> -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pirates Booty</title>
+    <script>
+        window.onload = init;
+        function init() {
+            let map = document.getElementById("map");
+            map.onmousemove = showCoords;
+        }
+        function showCoords(eventObj) {
+            let map = document.getElementById("coords");
+            let x = eventObj.clientX;
+            let y = eventObj.clientY;
+            map.innerHTML = "Map coordinates: " + x + ", " + y;
+        }
+    </script>
+</head>
+
+<body>
+    <img id="map" src="map.jpg">
+    <p id="coords">Move mouse to find coordinates...</p>
+</body>
+
+</html>
