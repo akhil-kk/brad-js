@@ -1,6 +1,6 @@
  ## Javascript Basics
 
- JS Console
+ ### JS Console
 
 The console object provides us with several different methods, like :
 
@@ -35,7 +35,7 @@ eg: console.time('hello');
   ```
 
 
- Variables
+## Variables
 
 1. JavaScript variables were (ES5) declared using the var keyword followed by the name of the variable.
 ```
@@ -49,7 +49,7 @@ eg: console.time('hello');
 3. "Const" is another variable type whose value cannot change throught the script.
 `eg: const pi = 3.14;`
 
- Data Types
+### Data Types
 
 1. Primitive Data Types
  * Stored directly in the location the variable accesses.
@@ -90,4 +90,43 @@ eg: console.time('hello');
  * Accessed by reference
  * Objects that are stored on the heap
  * A pointer to a location in memory
+
+ ## Important Points to note.
+
+ * **This** - The JavaScript this keyword refers to the object it belongs to.
+ eg:
+ ```
+ const test = {
+  prop: 42,
+  func: function() {
+    return this.prop;
+  },
+};
+
+console.log(test.func());
+```
+ * **A Promise** is an object representing the eventual completion or failure of an asynchronous operation.Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.
+
+    * A Promise is in one of these states:
+
+    * pending: initial state, neither fulfilled nor rejected.
+    * fulfilled: meaning that the operation was completed successfully.
+    * rejected: meaning that the operation failed.
+    
+ * **A callback function** is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+ eg:
+ ```
+ function greeting(name) {
+  alert('Hello ' + name);
+}
+
+function processUserInput(callback) {
+  var name = prompt('Please enter your name.');
+  callback(name);
+}
+
+processUserInput(greeting);
+```
+* 
+
 
