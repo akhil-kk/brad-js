@@ -127,6 +127,20 @@ function processUserInput(callback) {
 
 processUserInput(greeting);
 ```
-* 
+### call() apply() bind()
 
+* The bind() method creates a new function where “this” refers to the parameter in the parenthesis in the above case “car”. This way the bind() method enables calling a function with a specified “this” value.
+
+```
+let car = { 
+    registrationNumber: "GA12345",
+    brand: "Toyota",
+
+    displayDetails: function(ownerName){
+        console.log(ownerName + ", this is your car: " + this.registrationNumber + " " + this.brand);
+    }
+}
+
+var myCarDetails = car.displayDetails.bind(car, "Vivian");
+```
 

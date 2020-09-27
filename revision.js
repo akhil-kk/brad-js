@@ -34,9 +34,9 @@
 // pass function to map
 
 const arr = [1, 4, 9, 16];
-// const map1 = arr.map(x => x * 2);
-// console.log(map1);
-//Array.reduce
+const map1 = arr.map(x => x * 2);
+console.log(map1);
+// Array.reduce
 
 let red = arr.reduce(fun)
 console.log(red);
