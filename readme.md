@@ -144,3 +144,10 @@ let car = {
 var myCarDetails = car.displayDetails.bind(car, "Vivian");
 ```
 
+### apply()
+* This time there is a car object without the displayDetails function, which is located in the global context.
+
+```
+displayDetails.apply(car, ["Vivian"]);
+```
+
