@@ -155,5 +155,22 @@ displayDetails.apply(car, ["Vivian"]);
 
 ```
 displayDetails.call(car, "Vivian");
+
 ```
+### currying
+
+* Currying is a technique of evaluating function with multiple arguments, into sequence of functions with single argument.In other words, when a function, instead of taking all arguments at one time, takes the first one and return a new function that takes the second one and returns a new function which takes the third one, and so forth, until all arguments have been fulfilled.
+
+```
+function volume(length) {
+      return function(width) {
+         return function(height) {
+            return height * width * length;
+         }
+      }
+   }
+console.log(volume(11)(2)(3));
+```
+
+
 

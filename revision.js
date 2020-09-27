@@ -33,16 +33,25 @@
 // array.map function
 // pass function to map
 
-const arr = [1, 4, 9, 16];
-const map1 = arr.map(x => x * 2);
-console.log(map1);
-// Array.reduce
+// const arr = [1, 4, 9, 16];
+// const map1 = arr.map(x => x * 2);
+// console.log(map1);
+// // Array.reduce
 
-let red = arr.reduce(fun)
-console.log(red);
+// let red = arr.reduce(fun)
+// console.log(red);
 
-function fun(acc, val) {
-    console.log('acc', acc);
-    console.log('val', val);
-    return acc + val;
-}
+// function fun(acc, val) {
+//     console.log('acc', acc);
+//     console.log('val', val);
+//     return acc + val;
+// }
+
+function volume(length) {
+    return function(width) {
+       return function(height) {
+          return height * width * length;
+       }
+    }
+ }
+console.log(volume(11)(2)(3));
