@@ -127,7 +127,7 @@ function processUserInput(callback) {
 
 processUserInput(greeting);
 ```
-### call() apply() bind()
+### bind()
 
 * The bind() method creates a new function where “this” refers to the parameter in the parenthesis in the above case “car”. This way the bind() method enables calling a function with a specified “this” value.
 
@@ -149,5 +149,11 @@ var myCarDetails = car.displayDetails.bind(car, "Vivian");
 
 ```
 displayDetails.apply(car, ["Vivian"]);
+```
+
+### call()
+
+```
+displayDetails.call(car, "Vivian");
 ```
 
