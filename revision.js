@@ -47,11 +47,33 @@
 //     return acc + val;
 // }
 
-function volume(length) {
-    return function(width) {
-       return function(height) {
-          return height * width * length;
-       }
+// function volume(length) {
+//     return function(width) {
+//        return function(height) {
+//           return height * width * length;
+//        }
+//     }
+//  }
+// // console.log(volume(11)(2)(3));
+// console.log(volume(3));
+
+// iterator
+function  nameIterator(names) {
+    let nextIndex = 0;
+
+    return {
+        next: function() {
+            return nextIndex < names.length ?
+            {value: names[nextIndex++], done: false} :
+            {done: true}
+        }
     }
- }
-console.log(volume(11)(2)(3));
+}
+
+
+const namesArr = ['jack', 'jill', 'john'];
+const names = nameIterator(namesArr);
+
+console.log(names.next().value);
+console.log(names.next().value);
+console.log(names.next().value);

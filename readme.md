@@ -170,7 +170,52 @@ function volume(length) {
       }
    }
 console.log(volume(11)(2)(3));
+
 ```
+
+### itertaors
+* loops that can be paused
+
+```
+function  nameIterator(names) {
+    let nextIndex = 0;
+
+    return {
+        next: function() {
+            return nextIndex < names.length ?
+            {value: names[nextIndex++], done: false} :
+            {done: true}
+        }
+    }
+}
+
+
+const namesArr = ['jack', 'jill', 'john'];
+const names = nameIterator(namesArr);
+
+console.log(names.next().value);
+console.log(names.next().value);
+console.log(names.next().value);
+```
+
+### Generators
+
+```
+function* sayNames() {
+  yield 'jack';
+  yield 'jill';
+  yield 'John';
+}
+
+const name = sayNames();
+
+console.log(name.next().value);
+```
+
+
+
+
+
 
 
 
