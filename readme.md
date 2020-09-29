@@ -212,6 +212,17 @@ const name = sayNames();
 console.log(name.next().value);
 ```
 
+### destructuring
+
+```
+const hero = {
+  name: 'Batman',
+  realName: 'Bruce Wayne'
+};
+
+const { name, realName } = hero;
+```
+
 
 
 
