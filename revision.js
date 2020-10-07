@@ -163,3 +163,35 @@ console.log(x);
 setInterval(() => {
     console.log('hi')
 }, 1000);
+
+// const promise = new Promise((resolve, reject) => {
+//     if(true) {
+//         resolve('success');
+//     } else {
+//         reject('failed');
+//     }
+// })
+
+
+// promise.then(data => console.log(data)).then(data => {
+//     throw Error;
+// }).catch(data => console.log('not resolved'));
+
+// const add = async (a, b) => {
+//     let c = a + b;
+//     return c;
+// }
+
+// let x = add(5, 6);
+// x.then(data => console.log(data));
+
+
+// arr = [12, 23, 25, 23, ]
+
+// console.log(arr.filter(item => item < 5));
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+let f = fruits.entries();
+console.log(f.next().value);
+console.log(f.next().value);
+console.log(f.next().value);
+console.log(f.next().value);
